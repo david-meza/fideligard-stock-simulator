@@ -1,8 +1,8 @@
 <td>{{ stock.Symbol }}</td>
 <td>{{ stock.Open | currency }}</td>
 <!-- fill in with methods/data below -->
-<td>{{ oneDay() }}</td>
-<td>{{ oneWeek() }}</td>
-<td>{{ oneMonth() }}</td>
+<td>{{ oneDay() | currency }}</td>
+<td>{{ oneWeek() | currency  }}</td>
+<td>{{ oneMonth() | currency  }}</td>
 
 <td><a ui-sref="/stock/trade">Trade</a></td>
