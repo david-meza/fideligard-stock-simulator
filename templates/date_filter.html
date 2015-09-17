@@ -1,2 +1,6 @@
-<time-slider callback="layoutSliderChanged" min="layoutStartTimeMS" max="layoutEndTimeMS" step="60000">
+<!-- template -->
+
+<time-slider change-date="changeDate(dateSelected)" date-selected="dateSelected" convert-to-date="convertToDate(dateSelected)">
 </time-slider>
+
+DATE in template: {{dateSelected}}

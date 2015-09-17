@@ -21,11 +21,14 @@
   </thead>
   <tbody>
 
-    <tr stock-row ng-repeat="stock in stocks" stock="stock"
+
+    <tr stock-row ng-repeat="stock in stocks | filter: {Date: dateSelected} " stock="stock"
         one-day="priceChangeNDays(1, stock)"
         one-week="priceChangeNDays(5, stock)"
         one-month="priceChangeNDays(22, stock)" >
     </tr>
+
+    DATE in stocks: {{dateSelected}}
 
   </tbody>
 
