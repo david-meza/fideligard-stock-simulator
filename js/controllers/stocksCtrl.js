@@ -1,28 +1,28 @@
 stocks.controller('stocksCtrl',
-  [ '$scope' , 'stocksService',
-  function($scope, stocksService){
+  [ '$scope' , 'stocksService', '$filter',
+  function($scope, stocksService, $filter){
 
     console.log('controller initiated');
-    // $s
 
-    //from stockService
-    $scope.stocks = apple.query.results.quote.slice(0, 30);
+    $scope.stocksService = stocksService;
 
-    $scope.dateSelected = "2014-01-02";
+    $scope.history = stocksService.getAllStockData();
+    $scope.dateSelected = stocksService.currentDate;
+
+    $scope.$watch('stocksService.currentDate', function(newVal, oldVal) {
+      console.log('date has changed')
+      $scope.dateSelected = stocksService.getDate();
+    })
 
     $scope.convertToDate = function(input){
-      console.log('convert to Date fn');
-      console.log(input);
-      var date = new Date(input);
-      $scope.dateSelected = date.toISOString().substring(0,10);
-      stocksService.setDate($scope.dateSelected);
+      stocksService.setDate($filter('date')(input, 'yyyy-MM-dd'));
     };
 
-    $scope.changeDate = function(inputDate){
-      console.log('callback fn');
-      $scope.dateSelected = inputDate;
-      stocksService.setDate($scope.dateSelected);
-    };
+    // $scope.changeDate = function(inputDate){
+    //   console.log('callback fn');
+    //   $scope.dateSelected = inputDate;
+    //   stocksService.setDate($scope.dateSelected);
+    // };
 
     $scope.priceChangeNDays = function(input, stock){
       // debugger
@@ -30,7 +30,5 @@ stocks.controller('stocksCtrl',
       console.log('date '+ $scope.dateSelected);
       return stocksService.priceChangeNDays(input, stock);
     };
-    //response.query.results.quote
-    //array of obj: Date , Symbol
 
   }]);
