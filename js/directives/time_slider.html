@@ -3,12 +3,11 @@
       <!-- to fix initial load date -->
 
       <!-- 86400000 = 1day || 1293840000000 = 2011/01/01 || 1325289600000 = 2911/12/31 -->
-      <input type="range" step="86400000" max="1419984000000" min="1388534400000"  id="rangeControlledByDate" value = "{{dateSelected}}"  ng-model="dateSelected" ng-change="convertToDate()"/>
-<!--       <input type="date" max="2014-12-31" min="2014-01-01"  id="dateControlledByRange" value ="{{dateSelected}}" ng-model="dateSelected"
-      ng-change="changeDate()" ng-init="dateSelected = '2014-12-31'" /> -->
+      <input type="range" step="86400000" max="1419984000000" min="1388534400000"  id="rangeControlledByDate" value = "{{dateSelected}}"  ng-model="dateSelected" ng-change="changeDate()"/>
+      <input type="date" max="2014-12-31" min="2014-01-01"  id="dateControlledByRange" value ="{{dateSelected}}" ng-model="dateSelected"
+      ng-change="changeDate()" ng-init="dateSelected = '2014-12-31'" />
 
     </div>
 
-DATE in dir: {{new Date(dateSelected)}}
-slider{{sliderDate}}
+DATE in dir: {{dateSelected | date}}
 </form>
