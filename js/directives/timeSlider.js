@@ -4,10 +4,9 @@ stocks.directive('timeSlider', function() {
       templateUrl: 'js/directives/time_slider.html',
       restrict: 'E',
       scope: {
-        // min: '=',
-        // max: '=',
         changeDate: '&',
         dateSelected: '=',
+        slider: '=',
         convertToDate: '&'
       },
 
