@@ -1,12 +1,11 @@
-<div>
-  <span>Start Date: </span>
-  <span class='startTime'></span>
+<form>
+    <div>
+      <!-- to fix initial load date -->
 
-  <input type='range'></input>
+        <!-- 86400000 = 1day || 1293840000000 = 2011/01/01 || 1325289600000 = 2911/12/31 -->
+        <input type="range" step="86400000" max="1419984000000" min="1388534400000" value="1388620800000" id="rangeControlledByDate" />
+        <input type="date" max="2014-12-31" min="2014-01-01" value="2014-01-02" id="dateControlledByRange" ng-model="dateSelected"/>
 
-  <span>End Date:</span><span class='endTime'></span>
+    </div>
 
-  <div style='position: absolute' class='curTime'>
-    <span></span>
-  </div>
-</div>
+</form>
