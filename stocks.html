@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fideligard Stock Portfolio</title>
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Angular -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+  <script type="text/javascript" src="js/angular-ui-router.js"></script>
+
+  <!-- app -->
+  <script src="js/app.js"></script>
+
+  <script src="js/controllers/stocksCtrl.js"></script>
+
+  <script src="js/services/portfolioService.js"></script>
+  <script src="js/services/stocksService.js"></script>
+
+
+</head>
+<body ng-app = "stocks">
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" ui-sref="index">
+          Fideligard Historical Portfolio Simulator
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-4">
+        <div ui-view="stocks"></div>
+      </div>
+
+      <div class="col-md-8">
+        <div ui-view="dateFilter"></div>
+        <div ui-view="portfolio"></div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
