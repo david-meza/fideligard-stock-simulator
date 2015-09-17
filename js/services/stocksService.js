@@ -1,10 +1,28 @@
-stocks.factory('stocksService', function() {
+stocks.factory('stocksService', ['$http', function($http) {
 
   var obj = {};
   var _currentDate = "2014-11-02";
   var _index;
 
   var stockHistory = apple.query.results.quote;
+  var marketHistory = {}
+
+  var symbols = ['GOOG', 'AAPL', 'FB', 'CVC', 'NFLX', 'AMZN', 'PFE', 'MSFT', 'C', 'F', 'NOK'];
+
+  var getData = function(symbol, startDate, endDate) {
+    return $http.get('http://query.yahooapis.com/v1/public/yql?q=%20select%20*%20from%20yahoo.finance.historicaldata%20where%20symbol%20=%20%22' + symbol + '%22%20and%20startDate%20=%20%22' + (startDate || '2013-12-01') + '%22%20and%20endDate%20=%20%22' + (endDate || '2015-08-31') + '%22%20&format=json%20&diagnostics=true%20&env=store://datatables.org/alltableswithkeys%20&callback=')
+  }
+
+  for (var i = 0; i < symbols.length; i++) {
+    getData(symbols[i]).then(
+      function(data) {
+        debugger;
+        marketHistory[symbols[i]] = data.query.results.quote;
+      }, function (data) {
+        console.log(data)
+      })
+  };
+
 
   obj.setDate = function(selectedDate){
     _currentDate = selectedDate;
@@ -39,4 +57,4 @@ stocks.factory('stocksService', function() {
 
   return obj;
 
-});
+}]);

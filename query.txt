@@ -1,0 +1,43 @@
+http://query.yahooapis.com/v1/public/yql?q=
+select * from   yahoo.finance.historicaldata
+         where     symbol    = "GOOG"
+         and    startDate = "2014-01-01"
+         and    endDate   = "2015-08-31"
+&format=json
+&diagnostics=true
+&env=store://datatables.org/alltableswithkeys
+&callback=
+
+
+         where  symbol    = "AAPL"
+         and    startDate = "2014-01-01"
+         and    endDate   = "2015-08-31"
+         OR     symbol    = "FB"
+         and    startDate = "2014-01-01"
+         and    endDate   = "2015-08-31"
+         OR     symbol    = "CVC"
+         and    startDate = "2014-01-01"
+         and    endDate   = "2015-08-31"
+         OR     symbol    = "NFLX"
+         and    startDate = "2014-01-01"
+         and    endDate   = "2015-08-31"
+         OR     symbol    = "AMZN"
+         and    startDate = "2014-01-01"
+         and    endDate   = "2015-08-31"
+
+
+         OR     symbol    = "PFE"
+         and    startDate = "2014-01-01"
+         and    endDate   = "2015-08-31"
+         OR     symbol    = "MSFT"
+         and    startDate = "2014-01-01"
+         and    endDate   = "2015-08-31"
+         OR     symbol    = "C"
+         and    startDate = "2014-01-01"
+         and    endDate   = "2015-08-31"
+         OR     symbol    = "F"
+         and    startDate = "2014-01-01"
+         and    endDate   = "2015-08-31"
+         OR     symbol    = "NOK"
+         and    startDate = "2014-01-01"
+         and    endDate   = "2015-08-31"
