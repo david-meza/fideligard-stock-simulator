@@ -21,7 +21,9 @@
   </thead>
   <tbody>
 
-    <tr stock-row ng-repeat="stock in stocks" stock="stock">
+    <tr stock-row one-day="priceChangeNDays(1)"
+    one-week="priceChangeNDays(5)"
+    one-month="priceChangeNDays(22)" ng-repeat="stock in stocks" stock="stock" >
     </tr>
 
   </tbody>

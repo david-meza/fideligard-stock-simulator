@@ -4,7 +4,7 @@ stocks.controller('stocksCtrl',
 
     console.log('controller initiated');
 
-    $scope.stocks = [apple.query.results.quote[0]];
+    $scope.stocks = apple.query.results.quote;
 
     $scope.dateSelected = "2014-01-02";
 
@@ -13,6 +13,12 @@ stocks.controller('stocksCtrl',
       stocksService.setDate($scope.dateSelected);
     };
 
+    $scope.priceChangeNDays = function(input){
+      // debugger
+      console.log('inside controller price change');
+      console.log('input: '+ input);
+      return stocksService.priceChangeNDays(input);
+    };
     //response.query.results.quote
     //array of obj: Date , Symbol
 
