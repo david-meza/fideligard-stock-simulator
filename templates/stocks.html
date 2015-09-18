@@ -22,10 +22,7 @@
   <tbody ng-repeat = "(symbol, stocks) in history">
 
 
-    <tr stock-row ng-repeat="stock in stocks | filter: { Date: dateSelected } " stock="stock"
-        one-day="priceChangeNDays(1, symbol)"
-        one-week="priceChangeNDays(5, symbol)"
-        one-month="priceChangeNDays(22, symbol)" >
+    <tr stock-row ng-repeat="stock in stocks | filter: { Date: dateSelected } " stock="stock" >
     </tr>
 
     DATE in stocks: {{dateSelected}}
