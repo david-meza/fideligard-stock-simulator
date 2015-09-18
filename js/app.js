@@ -1,4 +1,4 @@
-stocks = angular.module("stocks", ['ui.router'] );
+stocks = angular.module("stocks", ['ui.router', 'ui.bootstrap'] );
 
 stocks.config(function($stateProvider, $urlRouterProvider) {
 
@@ -9,7 +9,7 @@ stocks.config(function($stateProvider, $urlRouterProvider) {
       views: {
         'dateFilter': {
           templateUrl: "templates/date_filter.html",
-          controller: 'stocksCtrl'
+          controller: 'datePickerCtrl'
         },
 
         'stocks': {
@@ -32,7 +32,7 @@ stocks.config(function($stateProvider, $urlRouterProvider) {
 
 stocks.filter('tickerFilter', function () {
   return function (items, search) {
-    if (search === "") return items;
+    if (!search) return items;
 
     var result = {};
     for (key in items) {

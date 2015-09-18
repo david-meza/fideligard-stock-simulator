@@ -1,17 +1,35 @@
 <div class="row">
-  <div class="col-xs-6 col-xs-offset-3">
-    <select ng-model="dropDownSelection" class = "form-control">
+  <div class="col-xs-6">
+    <h2>Stocks</h2>
+    <h6><b>Date:</b> {{ dateSelected.date }}</h6>
+  </div>
+
+  <div class="col-xs-6">
+    <label for="ticker">Filter:</label>
+    <input
+      type="text"
+      name = "ticker"
+      ng-model="dropDownSelection"
+      typeahead="ticker for ticker in symbols | filter: $viewValue | limitTo: 8"
+      typeahead-no-results="noResults"
+      class="form-control">
+
+    <div ng-show="noResults">
+      <i class="glyphicon glyphicon-remove"></i> No Results Found
+    </div>
+
+<!--     <select name = "ticker" ng-model="dropDownSelection" class = "form-control">
       <option value = "">Select a Ticker</option>
       <option ng-repeat="ticker in symbols" value='{{ticker}}'>
         {{ticker}}
       </option>
-    </select>
+    </select> -->
+
   </div>
 </div>
 
 <div class="row">
   <div class="col-xs-12">
-    DATE in stocks: {{dateSelected}}
 
     <table class = "table table-hover">
       <thead>
@@ -37,7 +55,7 @@
 
       <tbody ng-repeat = "(symbol, stocks) in history | tickerFilter: dropDownSelection">
 
-        <tr stock-row ng-repeat="stock in stocks | filter: { Date: dateSelected } " stock="stock" >
+        <tr stock-row ng-repeat="stock in stocks | filter: { Date: dateSelected.date } " stock="stock" >
         </tr>
 
       </tbody>

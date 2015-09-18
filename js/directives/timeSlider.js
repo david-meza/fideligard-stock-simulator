@@ -4,23 +4,25 @@ stocks.directive('timeSlider', function() {
       templateUrl: 'js/directives/time_slider.html',
       restrict: 'E',
       scope: {
-        changeDate: '&',
+        max: '=',
+        min: '=',
         dateSelected: '=',
         slider: '=',
         convertToDate: '&'
       },
 
-      link: function() {
+      link: function(scope, elem, attrs) {
 
-        jQuery(function($) {
+        $(document).ready(function () {
 
-          $('#dateControlledByRange').on('input', function() {
-              $('#rangeControlledByDate').prop('valueAsNumber', $.prop(this, 'valueAsNumber'));
-          });
-
-          $('#rangeControlledByDate').on('input', function() {
-              $('#dateControlledByRange').prop('valueAsNumber', $.prop(this, 'valueAsNumber'));
-          });
+          // $('input[type="range"]').on('focus', function(event) {
+          //   console.log("moving")
+          //   //Set tooltip position according to mouse position
+          //   $('.tooltip').css({
+          //     "position": "relative",
+          //     "left": event.pageX + 'px',
+          //   })
+          // });
 
         });
       }
