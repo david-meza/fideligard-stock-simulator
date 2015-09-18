@@ -5,9 +5,6 @@ stocks.directive('stockRow', function(){
     templateUrl: 'js/directives/stock-row.html',
     scope: {
       stock: '=',
-      // oneDay: '&',
-      // oneWeek: '&',
-      // oneMonth: '&',
     }
   };
 

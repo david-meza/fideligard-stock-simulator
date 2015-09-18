@@ -36,7 +36,7 @@
 <body ng-app = "stocks">
 
   <nav class="navbar navbar-default">
-    <div class="container-fluid">
+    <div class="container">
       <div class="navbar-header">
         <a class="navbar-brand" ui-sref="index">
           Fideligard Historical Portfolio Simulator
@@ -45,7 +45,7 @@
     </div>
   </nav>
 
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
 
       <div class="col-md-4">
@@ -54,11 +54,11 @@
 
       <div class="col-md-8">
         <div class="row">
-          <div ui-view="dateFilter"></div>
+          <div class = "col-xs-12" ui-view="dateFilter"></div>
         </div>
 
         <div class="row">
-          <div ui-view="portfolio"></div>
+          <div class = "col-xs-12" ui-view="portfolio"></div>
         </div>
       </div>
 

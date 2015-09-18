@@ -1,7 +1,6 @@
 <form>
     <div>
       <!-- to fix initial load date -->
-
       <!-- 86400000 = 1day || 1293840000000 = 2011/01/01 || 1325289600000 = 2911/12/31 -->
 
       <input type="range" step="86400000" max="1419984000000" min="1388534400000"  id="rangeControlledByDate" value = "{{ slider }}"  ng-model="slider" ng-change="convertToDate()"/>
@@ -10,7 +9,6 @@
 
     </div>
 
-DATE in dir: {{ dateSelected | date }}
-slider{{sliderDate}}
+DATE in directive: {{ dateSelected }}
 
 </form>

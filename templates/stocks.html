@@ -1,39 +1,48 @@
-<select ng-model="dropDownSelection">
-  <option value = "">Select a Ticker</option>
-  <option ng-repeat="ticker in symbols" value='{{ticker}}'>
-    {{ticker}}
-  </option>
-</select>
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <select ng-model="dropDownSelection" class = "form-control">
+      <option value = "">Select a Ticker</option>
+      <option ng-repeat="ticker in symbols" value='{{ticker}}'>
+        {{ticker}}
+      </option>
+    </select>
+  </div>
+</div>
 
-<table class = "table table-hover">
-  <thead>
-    <th>
-      <a href="">Symbol</a>
-    </th>
-    <th>
-      <a href="">Price</a>
-    </th>
-    <th>
-      <a href="">1d</a>
-    </th>
-    <th>
-      <a href="">7d</a>
-    </th>
-    <th>
-      <a href="">30d</a>
-    </th>
-    <th>
-      <a href="">Trade</a>
-    </th>
-  </thead>
-  <tbody ng-repeat = "(symbol, stocks) in history | tickerFilter: dropDownSelection">
-
-
-    <tr stock-row ng-repeat="stock in stocks | filter: { Date: dateSelected } " stock="stock" >
-    </tr>
-
+<div class="row">
+  <div class="col-xs-12">
     DATE in stocks: {{dateSelected}}
 
-  </tbody>
+    <table class = "table table-hover">
+      <thead>
+        <th>
+          <a href="">Symbol</a>
+        </th>
+        <th>
+          <a href="">Price</a>
+        </th>
+        <th>
+          <a href="">1d</a>
+        </th>
+        <th>
+          <a href="">7d</a>
+        </th>
+        <th>
+          <a href="">30d</a>
+        </th>
+        <th>
+          <a href="">Trade</a>
+        </th>
+      </thead>
 
-</table>
+      <tbody ng-repeat = "(symbol, stocks) in history | tickerFilter: dropDownSelection">
+
+        <tr stock-row ng-repeat="stock in stocks | filter: { Date: dateSelected } " stock="stock" >
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+</div>

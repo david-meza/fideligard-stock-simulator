@@ -1,13 +1,11 @@
 stocks.factory('stocksService', ['$http', function($http) {
 
   var obj = {};
-  obj.currentDate = "2014-02-01";
-  var _index;
+  obj.currentDate = "2014-07-18";
 
-  // var stockHistory = apple.query.results.quote;
   var marketHistory = {};
 
-  var symbols = ['GOOG', 'AAPL', 'FB', 'CVC', 'NFLX', 'AMZN', 'PFE', 'MSFT', 'C', 'F', 'NOK'].slice(0, 2);
+  var symbols = ['GOOG', 'AAPL', 'FB', 'CVC', 'NFLX', 'AMZN', 'PFE', 'MSFT', 'C', 'F', 'NOK'];
 
 
   //all market data when complete
@@ -16,7 +14,6 @@ stocks.factory('stocksService', ['$http', function($http) {
       function(data) {
         addStockData(data, symbols[idx]);
         addPriceComparison(symbols[idx]);
-        // debugger;
       }, function (data) {
         console.log(data)
       });
@@ -37,7 +34,6 @@ stocks.factory('stocksService', ['$http', function($http) {
     var stock = marketHistory[symbol];
     for (var i = 0; i < stock.length; i++){
       var day = stock[i];
-      debugger;
       day.oneDay = obj.priceChangeNDays(symbol, i, 1);
       day.oneWeek = obj.priceChangeNDays(symbol, i, 5);
       day.oneMonth = obj.priceChangeNDays(symbol, i, 22);
@@ -55,21 +51,7 @@ stocks.factory('stocksService', ['$http', function($http) {
     return obj.currentDate;
   };
 
-  // can be optimized later
-  var getIndexInData = function(symbol){
-    for (var i=0; i < marketHistory[symbol].length; i++){
-      if (marketHistory[symbol][i].Date == obj.currentDate){
-        return _index = i;
-      } else if (marketHistory[symbol][i].Date < obj.currentDate){
-        return _index = i-1;
-      }
-    }
-    return _index = 0; //if not found, edge case
-  };
- // 30d
   obj.priceChangeNDays = function(symbol, idx, days){
-    // getIndexInData(symbol);
-
     if (idx + days >= marketHistory[symbol].length) return '-';
     return marketHistory[symbol][idx].Open - marketHistory[symbol][idx+days].Open;
   };
