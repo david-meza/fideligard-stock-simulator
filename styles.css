@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }*/
 
+a {
+  cursor: pointer;
+}
+
 input {
   z-index: 3;
 }
@@ -13,6 +17,13 @@ input {
 }
 
 .bordered-col {
+}
+
+.sortorder:after {
+  content: '\25b2';
+}
+.sortorder.reverse:after {
+  content: '\25bc';
 }
 
 input[type=range] {
