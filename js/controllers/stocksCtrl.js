@@ -5,6 +5,7 @@ stocks.controller('stocksCtrl',
     console.log('controller initiated');
 
     $scope.stocksService = stocksService;
+    $scope.symbols = stocksService.getSymbols();
 
     $scope.history = stocksService.getAllStockData();
     $scope.dateSelected = stocksService.currentDate;

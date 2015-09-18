@@ -1,3 +1,10 @@
+<select ng-model="dropDownSelection">
+  <option value = "">Select a Ticker</option>
+  <option ng-repeat="ticker in symbols" value='{{ticker}}'>
+    {{ticker}}
+  </option>
+</select>
+
 <table class = "table table-hover">
   <thead>
     <th>
@@ -19,7 +26,7 @@
       <a href="">Trade</a>
     </th>
   </thead>
-  <tbody ng-repeat = "(symbol, stocks) in history">
+  <tbody ng-repeat = "(symbol, stocks) in history | tickerFilter: dropDownSelection">
 
 
     <tr stock-row ng-repeat="stock in stocks | filter: { Date: dateSelected } " stock="stock" >

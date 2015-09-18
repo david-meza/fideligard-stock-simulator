@@ -37,6 +37,7 @@ stocks.factory('stocksService', ['$http', function($http) {
     var stock = marketHistory[symbol];
     for (var i = 0; i < stock.length; i++){
       var day = stock[i];
+      debugger;
       day.oneDay = obj.priceChangeNDays(symbol, i, 1);
       day.oneWeek = obj.priceChangeNDays(symbol, i, 5);
       day.oneMonth = obj.priceChangeNDays(symbol, i, 22);
@@ -77,6 +78,10 @@ stocks.factory('stocksService', ['$http', function($http) {
     return marketHistory;
     // { symbol: , price, 1d, 7d, 30d}
   };
+
+  obj.getSymbols = function(){
+    return symbols;
+  }
 
   return obj;
 

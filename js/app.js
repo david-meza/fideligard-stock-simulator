@@ -30,6 +30,19 @@ stocks.config(function($stateProvider, $urlRouterProvider) {
 
 });
 
+stocks.filter('tickerFilter', function () {
+    return function (items, search) {
+      if (search == "") return items;
+      var result = {};
+      angular.forEach(items, function (value, key) {
+        if (value.hasOwnProperty(search)){
+          result[key] = value;
+        }
+      });
+      return result;
+    };
+});
+
 
 // enable error handling
 stocks.run(function($rootScope){
