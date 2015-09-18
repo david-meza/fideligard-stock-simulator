@@ -1,0 +1,29 @@
+<div class="container">
+
+  <h1>Fideligard Stock Trade Simulator</h1>
+
+  <h5>Welcome. Click on one of the navigation links below</h5>
+
+
+  <div class="row">
+    <div class="col-xs-4">
+
+      <!-- Single button -->
+      <div class="btn-group" dropdown is-open="status.isopen">
+        <button type="button" class="btn btn-primary" dropdown-toggle ng-disabled="disabled">
+          Simulator <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="simulator">
+          <li role="menuitem"><a ui-sref = "app.simulator.portfolio">Portfolio</a></li>
+          <li role="menuitem"><a ui-sref = "app.simulator.trade">Trade</a></li>
+          <li role="menuitem"><a ui-sref = "app.simulator.trade">Transactions</a></li>
+          <li class="divider"></li>
+          <li role="menuitem"><a ui-sref = "app.simulator">Simulator</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>

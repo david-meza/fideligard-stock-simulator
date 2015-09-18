@@ -20,9 +20,5 @@ stocks.controller('stocksCtrl',
       $scope.sortQuery = value;
     };
 
-    // $scope.selectSort = function (value) {
-    //   if ($scope.sortQuery == value) return $scope.sortQuery = '-' + value.substring(1, value.length);
-    //   return $scope.sortQuery = value;
-    // }
-
-  }]);
+  }]
+);

@@ -13,18 +13,6 @@ stocks.directive('timeSlider', function() {
 
       link: function(scope, elem, attrs) {
 
-        $(document).ready(function () {
-
-          // $('input[type="range"]').on('focus', function(event) {
-          //   console.log("moving")
-          //   //Set tooltip position according to mouse position
-          //   $('.tooltip').css({
-          //     "position": "relative",
-          //     "left": event.pageX + 'px',
-          //   })
-          // });
-
-        });
       }
     };
   });

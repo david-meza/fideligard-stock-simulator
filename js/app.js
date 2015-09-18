@@ -4,29 +4,58 @@ stocks.config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
 
-    .state('index', {
-      url: '/index',
+    .state('app', {
+      url: '/',
       views: {
-        'dateFilter': {
-          templateUrl: "templates/date_filter.html",
+        'navbar': {
+          templateUrl: 'templates/partials/navbar.html'
+        },
+
+        'content': {
+          templateUrl: 'templates/partials/content.html'
+        },
+
+        'footer': {
+          templateUrl: 'templates/partials/footer.html'
+        },
+
+      },
+    })
+
+    .state('app.simulator', {
+      url: 'simulator',
+      views: {
+        'content@': {
+          templateUrl: "templates/simulator.html"
+        },
+
+        'dateFilter@app.simulator': {
+          templateUrl: "templates/partials/date_filter.html",
           controller: 'datePickerCtrl'
         },
 
-        'stocks': {
-          templateUrl: "templates/stocks.html",
-          controller: 'stocksCtrl'
-        },
-
-        'portfolio': {
-          templateUrl: "templates/portfolio.html",
+        'stocks@app.simulator': {
+          templateUrl: "templates/partials/stocks.html",
           controller: 'stocksCtrl'
         }
 
       }
-    });
+    })
+
+    .state('app.simulator.portfolio', {
+      url: '/portfolio',
+      templateUrl: "templates/portfolio.html",
+      controller: 'portfolioCtrl'
+    })
+
+    .state('app.simulator.trade', {
+      url: '/trade',
+      templateUrl: "templates/trade.html",
+      controller: 'tradeCtrl'
+    })
 
 
-  $urlRouterProvider.otherwise('/index');
+  $urlRouterProvider.otherwise('/');
 
 });
 

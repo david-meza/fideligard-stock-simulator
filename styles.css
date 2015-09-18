@@ -10,7 +10,7 @@ input {
   z-index: 3;
 }
 
-#stocks-panel, #slider-panel, #portfolio-panel {
+#stocks-panel, #slider-panel, #panel {
   margin: 15px 3px 5px;
   border: 2px solid #eee;
   padding: 5px 10px;
@@ -114,4 +114,24 @@ input[type=range]:focus::-ms-fill-lower {
 }
 input[type=range]:focus::-ms-fill-upper {
   background: #367ebd;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 40px;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 40px;
+  padding-top: 10px;
+  background-color: #f5f5f5;
 }

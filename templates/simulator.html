@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-5 bordered-col">
+      <div id = "stocks-panel" ui-view="stocks"></div>
+    </div>
+
+    <div class="col-md-7 bordered-col">
+      <div class="row">
+        <div class = "col-xs-12">
+          <div id = "slider-panel" ui-view="dateFilter"></div>
+        </div>
+      </div>
+
+      <div class="row bordered-col">
+        <div class = "col-xs-12">
+          <div id = "panel" ui-view></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
