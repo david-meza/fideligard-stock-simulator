@@ -32,11 +32,11 @@ stocks.controller('tradeCtrl',
     $scope.processForm = function () {
       var transaction = {
         symbol: $scope.symbol,
-        date: convertToDate($scope.dateSelected)
-        type: $scope.transaction
+        date: convertToDate($scope.dateSelected),
+        type: $scope.transaction,
         quantity: $scope.quantity,
         price: currentPrice,
-        total: total
+        total: total,
       }
 
       if ($scope.transaction === "buy") {
@@ -49,6 +49,7 @@ stocks.controller('tradeCtrl',
       };
 
       bankService.transactions.push(transaction)
+      console.log(bankService.transactions)
     }
 
 
