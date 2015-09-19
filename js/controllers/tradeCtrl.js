@@ -7,7 +7,7 @@ stocks.controller('tradeCtrl',
     $scope.symbol = $stateParams.symbol;
     $scope.bank = bankService.bank;
     $scope.quantity = 1;
-    $scope.transaction = "buy";
+    $scope.transaction = "Buy";
     $scope.history = stocksService.getAllStockData();
     $scope.dateSelected = new Date(stocksService.currentDate.date);
     $scope.errors = {};
@@ -42,13 +42,13 @@ stocks.controller('tradeCtrl',
         total: total,
       }
 
-      if ($scope.transaction === "buy") {
+      if ($scope.transaction === "Buy") {
         if ($scope.bank.cash >= transaction.total) {
           $scope.bank.cash -= transaction.total
         } else {
           return $scope.errors.messages.push("You don't have enough money to buy this!")
         }
-      } else if ($scope.transaction === "sell") {
+      } else if ($scope.transaction === "Sell") {
         // Check if we had this many shares of the symbol
         if (validateSale(transaction)) {
           $scope.bank.cash += total
