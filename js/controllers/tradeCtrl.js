@@ -1,6 +1,6 @@
 stocks.controller('tradeCtrl',
-  [ '$scope' , 'stocksService', 'bankService', '$stateParams', '$filter',
-  function ($scope, stocksService, bankService, $stateParams, $filter) {
+  [ '$scope' , 'stocksService', 'bankService', 'portfolioService', '$stateParams', '$filter',
+  function ($scope, stocksService, bankService, portfolioService, $stateParams, $filter) {
 
     // Initialize models
     $scope.symbols = stocksService.getSymbols();
@@ -9,9 +9,11 @@ stocks.controller('tradeCtrl',
     $scope.quantity = 1;
     $scope.transaction = "buy";
     $scope.history = stocksService.getAllStockData();
-    $scope.dateSelected = stocksService.currentDate.date;
+    $scope.dateSelected = new Date(stocksService.currentDate.date);
+    $scope.errors = {};
     var currentPrice = 0;
     var total = 0;
+
 
     $scope.getTotal = function () {
       return total = currentPrice * $scope.quantity;
@@ -30,6 +32,7 @@ stocks.controller('tradeCtrl',
     };
 
     $scope.processForm = function () {
+      $scope.errors.messages = [];
       var transaction = {
         symbol: $scope.symbol,
         date: convertToDate($scope.dateSelected),
@@ -40,16 +43,34 @@ stocks.controller('tradeCtrl',
       }
 
       if ($scope.transaction === "buy") {
-        $scope.bank.cash -= total
+        if ($scope.bank.cash >= transaction.total) {
+          $scope.bank.cash -= transaction.total
+        } else {
+          return $scope.errors.messages.push("You don't have enough money to buy this!")
+        }
       } else if ($scope.transaction === "sell") {
         // Check if we had this many shares of the symbol
-        $scope.bank.cash += total
+        if (validateSale(transaction)) {
+          $scope.bank.cash += total
+        } else {
+          return $scope.errors.messages.push("Cannot sell stock you don't have at this point in time")
+        };
       } else {
-        return console.log("Not a proper transaction")
+        return $scope.errors.messages.push("Not a proper transaction. Did you select an option from the dropdown?")
       };
 
-      bankService.transactions.push(transaction)
-      console.log(bankService.transactions)
+      portfolioService.transactions.push(transaction)
+      console.log(portfolioService.transactions)
+    }
+
+    var validateSale = function (transaction) {
+      for (var i = 0; i < portfolioService.transactions.length; i++) {
+        if (portfolioService.transactions[i].symbol == transaction.symbol &&
+            portfolioService.transactions[i].quantity >= transaction.quantity &&
+            portfolioService.transactions[i].date < transaction.date)
+          return true;
+      };
+      return false;
     }
 
 

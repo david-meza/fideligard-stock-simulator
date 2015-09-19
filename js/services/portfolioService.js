@@ -1,8 +1,10 @@
 stocks.factory('portfolioService', function() {
 
-  var obj;
+  var transactions = [];
 
 
-  return obj;
+  return {
+    transactions: transactions
+  };
 
 })

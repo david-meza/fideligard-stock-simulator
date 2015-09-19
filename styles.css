@@ -6,6 +6,10 @@ a {
   cursor: pointer;
 }
 
+td {
+  word-break: break-all;
+}
+
 input {
   z-index: 3;
 }

@@ -119,6 +119,12 @@
     <p><b>Order Status:</b></p>
     <p class = "text-success" ng-if="tradeform.$valid">All fields valid!</p>
     <p class = "text-warning" ng-if="tradeform.$invalid">Not all fields are valid!</p>
+    <div ng-if="errors.messages.length > 0">
+      <p class = "text-danger" >The form failed to submit for the following reason(s): </p>
+      <ul>
+        <li class = "text-danger" ng-repeat = "msg in errors.messages">{{ msg }}</li>
+      </ul>
+    </div>
   </div>
 
 </div>

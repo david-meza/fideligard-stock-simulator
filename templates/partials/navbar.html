@@ -8,10 +8,10 @@
     </div>
 
     <ul class="nav navbar-nav navbar-right">
-      <div id = "nav-button" class="btn-group" dropdown is-open="status.isopen">
-        <button type="button" class="btn btn-default" dropdown-toggle ng-disabled="disabled">
-          Simulator <span class="caret"></span>
-        </button>
+      <li class="dropdown" dropdown is-open="status.isopen">
+        <a role="button" class="dropdown-toggle" dropdown-toggle>
+          Simulator <b class="caret"></b>
+        </a>
         <ul class="dropdown-menu" role="menu" aria-labelledby="simulator">
           <li role="menuitem"><a ui-sref = "app.simulator.portfolio">Portfolio</a></li>
           <li role="menuitem"><a ui-sref = "app.simulator.trade">Trade</a></li>
@@ -19,7 +19,7 @@
           <li class="divider"></li>
           <li role="menuitem"><a ui-sref = "app.simulator">Simulator</a></li>
         </ul>
-      </div>
+      </li>
     </ul>
 
   </div>
