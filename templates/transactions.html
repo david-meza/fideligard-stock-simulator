@@ -6,7 +6,7 @@
 
   <div class="col-xs-6">
     <label for="tfilter">Filter</label>
-    <input type="text" name="tfilter" class="form-control">
+    <input type="text" ng-model = "tfilter" name="tfilter" class="form-control">
   </div>
 
 </div>
@@ -16,19 +16,33 @@
   <div class="col-xs-12">
     <table class = "table table-hover">
       <thead>
-        <th>Date</th>
-        <th>Symbol</th>
-        <th>Type</th>
-        <th>Quantity</th>
-        <th>Price</th>
+        <th>
+          <a ng-click = "selectSort('date')">Date</a>
+          <span class="sortorder" ng-show="sortQuery === 'date'" ng-class="{reverse:reverse}"></span>
+        </th>
+        <th>
+          <a ng-click = "selectSort('symbol')">Symbol</a>
+          <span class="sortorder" ng-show="sortQuery === 'symbol'" ng-class="{reverse:reverse}"></span>
+        </th>
+        <th>
+          <a ng-click = "selectSort('type')">Type</a>
+          <span class="sortorder" ng-show="sortQuery === 'type'" ng-class="{reverse:reverse}"></span>
+        </th>
+        <th>
+          <a ng-click = "selectSort('quantity')">Quantity</a>
+          <span class="sortorder" ng-show="sortQuery === 'quantity'" ng-class="{reverse:reverse}"></span>
+        </th><th>
+          <a ng-click = "selectSort('price')">Price</a>
+          <span class="sortorder" ng-show="sortQuery === 'price'" ng-class="{reverse:reverse}"></span>
+        </th>
       </thead>
       <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+        <tr ng-repeat = "transaction in transactions | filter: tfilter | orderBy: sortQuery : reverse">
+          <td> {{ transaction.date | date: 'yyyy/MM/dd' }} </td>
+          <td> {{ transaction.symbol }} </td>
+          <td> {{ transaction.type }} </td>
+          <td> {{ transaction.quantity }} </td>
+          <td> {{ transaction.price | currency }} </td>
         </tr>
       </tbody>
     </table>
