@@ -2,9 +2,28 @@
   <div class="container">
     <div class="navbar-header">
       <img class="navbar-brand img-responsive" src="https://cdn4.iconfinder.com/data/icons/business-bicolor-2/512/stock_market-512.png">
-      <a class="navbar-brand" ui-sref="index">
+      <a class="navbar-brand" ui-sref="app">
         Fideligard Historical Portfolio Simulator
       </a>
     </div>
+
+    <ul class="nav navbar-nav navbar-right">
+      <div id = "nav-button" class="btn-group" dropdown is-open="status.isopen">
+        <button type="button" class="btn btn-default" dropdown-toggle ng-disabled="disabled">
+          Simulator <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="simulator">
+          <li role="menuitem"><a ui-sref = "app.simulator.portfolio">Portfolio</a></li>
+          <li role="menuitem"><a ui-sref = "app.simulator.trade">Trade</a></li>
+          <li role="menuitem"><a ui-sref = "app.simulator.trade">Transactions</a></li>
+          <li class="divider"></li>
+          <li role="menuitem"><a ui-sref = "app.simulator">Simulator</a></li>
+        </ul>
+      </div>
+    </ul>
+
   </div>
 </nav>
+
+
+

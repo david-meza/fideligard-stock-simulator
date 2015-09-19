@@ -9,7 +9,7 @@
     <input
       type="text"
       name = "ticker"
-      ng-model="dropDownSelection"
+      ng-model="tickerSelection"
       typeahead="ticker for ticker in symbols | filter: $viewValue | limitTo: 8"
       typeahead-no-results="noResults"
       class="form-control">
@@ -17,13 +17,6 @@
     <div ng-show="noResults">
       <i class="glyphicon glyphicon-remove"></i> No Results Found
     </div>
-
-<!--     <select name = "ticker" ng-model="dropDownSelection" class = "form-control">
-      <option value = "">Select a Ticker</option>
-      <option ng-repeat="ticker in symbols" value='{{ticker}}'>
-        {{ticker}}
-      </option>
-    </select> -->
 
   </div>
 </div>
@@ -38,8 +31,8 @@
           <span class="sortorder" ng-show="sortQuery === 'Symbol'" ng-class="{reverse:reverse}"></span>
         </th>
         <th>
-          <a ng-click = "selectSort('Open')">Price</a>
-          <span class="sortorder" ng-show="sortQuery === 'Open'" ng-class="{reverse:reverse}"></span>
+          <a ng-click = "selectSort('avg')">Price</a>
+          <span class="sortorder" ng-show="sortQuery === 'avg'" ng-class="{reverse:reverse}"></span>
         </th>
         <th>
           <a ng-click = "selectSort('oneDay')">1d</a>
@@ -58,11 +51,11 @@
         </th>
       </thead>
 
-      <tbody ng-repeat = "(symbol, stocks) in history | tickerFilter: dropDownSelection">
+      <tbody>
 
         <tr
           stock-row
-          ng-repeat="stock in stocks | filter: { Date: dateSelected.date } | orderBy: sortQuery"
+          ng-repeat="stock in history.contents | tickerFilter: tickerSelection | filter: { Date: dateSelected.date } | orderBy: sortQuery : reverse"
           stock="stock" >
         </tr>
 

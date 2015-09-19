@@ -10,6 +10,14 @@ input {
   z-index: 3;
 }
 
+form .ng-invalid.ng-touched {
+  border: 2px inset #d8262c;
+}
+
+form .ng-valid.ng-touched {
+  border: 2px inset #8AC007;
+}
+
 #stocks-panel, #slider-panel, #panel {
   margin: 15px 3px 5px;
   border: 2px solid #eee;
@@ -116,6 +124,16 @@ input[type=range]:focus::-ms-fill-upper {
   background: #367ebd;
 }
 
+.text-vertical-center {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+
+#nav-button {
+  margin-top: 10px;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -133,5 +151,6 @@ footer {
   /* Set the fixed height of the footer here */
   height: 40px;
   padding-top: 10px;
+  margin-top: 20px;
   background-color: #f5f5f5;
 }
