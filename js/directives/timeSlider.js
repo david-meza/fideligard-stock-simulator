@@ -1,7 +1,7 @@
 stocks.directive('timeSlider', function() {
 
     return {
-      templateUrl: 'js/directives/time_slider.html',
+      templateUrl: 'templates/directives/time_slider.html',
       restrict: 'E',
       scope: {
         max: '=',

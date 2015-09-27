@@ -1,0 +1,14 @@
+<td>{{ stock.symbol }}</td>
+
+<td>{{ stock.quantity }}</td>
+<td>{{ stock.costBasis | currency }}</td>
+<td>{{ stock.currentValue | currency }}</td>
+
+<td>{{ stock.profit | currency  }}</td>
+<td>{{ stock.currentPrice | currency  }}</td>
+
+<td>{{ stock.oneDay | currency }}</td>
+<td>{{ stock.oneWeek | currency  }}</td>
+<td>{{ stock.oneMonth | currency  }}</td>
+
+<td><a ui-sref="app.simulator.trade({ symbol: stock.Symbol })">Trade</a></td>

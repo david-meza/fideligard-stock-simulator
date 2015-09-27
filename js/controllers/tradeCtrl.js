@@ -58,7 +58,6 @@ stocks.controller('tradeCtrl',
 
       processTransaction(transaction);
 
-      portfolioService.transactions.push(transaction)
       console.log(portfolioService.transactions)
     }
 
@@ -121,10 +120,12 @@ stocks.controller('tradeCtrl',
             return $scope.errors.messages.push("You don't have enough money to buy this!")
           }
         } else {
-          return $scope.errors.messages.push("You cannot sell stock you don't have!");
+          return $scope.errors.messages.push("You cannot sell stock you never bought!");
         }
 
       }
+
+      portfolioService.transactions.push(transaction)
 
     }
 

@@ -3,12 +3,6 @@
   <div class="col-xs-12">
     <h2>Portfolio</h2>
   </div>
-<!--
-  <div class="col-xs-6">
-    <select class="form-control">
-      <option value="">Portfolio</option>
-    </select>
-  </div> -->
 
 </div>
 
@@ -17,12 +11,30 @@
   <div class="col-xs-12">
     <table class = "table table-hover">
       <thead>
-        <th>Cost Basis</th>
-        <th>Current Value</th>
-        <th>Profit/Loss</th>
-        <th>1d</th>
-        <th>7d</th>
-        <th>30d</th>
+        <th>
+          <a ng-click = "selectSort('costBasis')">Cost Basis</a>
+          <span class="sortorder" ng-show="sortQuery === 'costBasis'" ng-class="{reverse:reverse}"></span>
+        </th>
+        <th>
+          <a ng-click = "selectSort('currentValue')">Current Value</a>
+          <span class="sortorder" ng-show="sortQuery === 'currentValue'" ng-class="{reverse:reverse}"></span>
+        </th>
+        <th>
+          <a ng-click = "selectSort('profit')">Profit/Loss</a>
+          <span class="sortorder" ng-show="sortQuery === 'profit'" ng-class="{reverse:reverse}"></span>
+        </th>
+        <th>
+          <a ng-click = "selectSort('oneDay')">1d</a>
+          <span class="sortorder" ng-show="sortQuery === 'oneDay'" ng-class="{reverse:reverse}"></span>
+        </th>
+        <th>
+          <a ng-click = "selectSort('oneWeek')">7d</a>
+          <span class="sortorder" ng-show="sortQuery === 'oneWeek'" ng-class="{reverse:reverse}"></span>
+        </th>
+        <th>
+          <a ng-click = "selectSort('oneMonth')">30d</a>
+          <span class="sortorder" ng-show="sortQuery === 'oneMonth'" ng-class="{reverse:reverse}"></span>
+        </th>
       </thead>
       <tbody>
         <tr >
@@ -44,30 +56,62 @@
   <div class="col-xs-12">
     <table class = "table table-hover">
       <thead>
-        <th>Symbol</th>
-        <th>Quantity</th>
-        <th>Cost Basis</th>
-        <th>Current Value</th>
-        <th>Profit/Loss</th>
-        <th>Current Price</th>
-        <th>1d</th>
-        <th>7d</th>
-        <th>30d</th>
+        <th>
+          <a ng-click = "selectSort('symbol')">Symbol</a>
+          <span class="sortorder" ng-show="sortQuery === 'symbol'" ng-class="{reverse:reverse}"></span>
+        </th>
+        <th>
+          <a ng-click = "selectSort('quantity')">Quantity</a>
+          <span class="sortorder" ng-show="sortQuery === 'quantity'" ng-class="{reverse:reverse}"></span>
+        </th>
+        <th>
+          <a ng-click = "selectSort('costBasis')">Cost Basis</a>
+          <span class="sortorder" ng-show="sortQuery === 'costBasis'" ng-class="{reverse:reverse}"></span>
+        </th>
+        <th>
+          <a ng-click = "selectSort('currentValue')">Current Value</a>
+          <span class="sortorder" ng-show="sortQuery === 'currentValue'" ng-class="{reverse:reverse}"></span>
+        </th>
+        <th>
+          <a ng-click = "selectSort('profit')">Profit/Loss</a>
+          <span class="sortorder" ng-show="sortQuery === 'profit'" ng-class="{reverse:reverse}"></span>
+        </th>
+        <th>
+          <a ng-click = "selectSort('currentPrice')">Current Price</a>
+          <span class="sortorder" ng-show="sortQuery === 'currentPrice'" ng-class="{reverse:reverse}"></span>
+        </th>
+        <th>
+          <a ng-click = "selectSort('oneDay')">1d</a>
+          <span class="sortorder" ng-show="sortQuery === 'oneDay'" ng-class="{reverse:reverse}"></span>
+        </th>
+        <th>
+          <a ng-click = "selectSort('oneWeek')">7d</a>
+          <span class="sortorder" ng-show="sortQuery === 'oneWeek'" ng-class="{reverse:reverse}"></span>
+        </th>
+        <th>
+          <a ng-click = "selectSort('oneMonth')">30d</a>
+          <span class="sortorder" ng-show="sortQuery === 'oneMonth'" ng-class="{reverse:reverse}"></span>
+        </th>
         <th>Trade</th>
       </thead>
       <tbody>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>CASH</td>
+          <td>{{ bank.cash | currency }}</td>
+          <td>{{ bank.cash | currency }}</td>
+          <td>{{ bank.cash | currency }}</td>
+          <td>{{ 0 | currency }}</td>
+          <td>{{ 1 | currency }}</td>
+          <td>{{ 0 | currency }}</td>
+          <td>{{ 0 | currency }}</td>
+          <td>{{ 0 | currency }}</td>
           <td></td>
         </tr>
+
+        <tr portfolio-row
+            ng-repeat="stock in history.contents | tickerFilter: tickerSelection | filter: { Date: dateSelected.date } | orderBy: sortQuery : reverse"
+            stock="stock"></tr>
+
       </tbody>
     </table>
   </div>

@@ -2,7 +2,7 @@ stocks.directive('stockRow', function(){
 
   return {
     restrict: 'A',
-    templateUrl: 'js/directives/stock-row.html',
+    templateUrl: 'templates/directives/stock_row.html',
     scope: {
       stock: '=',
     }
