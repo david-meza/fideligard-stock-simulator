@@ -37,13 +37,13 @@
         </th>
       </thead>
       <tbody>
-        <tr >
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+        <tr>
+          <td> {{ compressedPortfolio.costBasis | currency }} </td>
+          <td> {{ compressedPortfolio.currentValue | currency }} </td>
+          <td> {{ compressedPortfolio.profit | currency }} </td>
+          <td> {{ compressedPortfolio.oneDay | currency }} </td>
+          <td> {{ compressedPortfolio.oneWeek | currency }} </td>
+          <td> {{ compressedPortfolio.oneMonth | currency }} </td>
         </tr>
       </tbody>
     </table>
@@ -54,42 +54,42 @@
 <div class="row">
 
   <div class="col-xs-12">
-    <table class = "table table-hover">
+    <table class = "table table-hover" id = "portfolio-table">
       <thead>
         <th>
-          <a ng-click = "selectSort('symbol')">Symbol</a>
+          <a ng-click = "selectSort('symbol')" tooltip = "Ticker Symbol">Sym</a>
           <span class="sortorder" ng-show="sortQuery === 'symbol'" ng-class="{reverse:reverse}"></span>
         </th>
         <th>
-          <a ng-click = "selectSort('quantity')">Quantity</a>
+          <a ng-click = "selectSort('quantity')" tooltip = "Quantity">Quan</a>
           <span class="sortorder" ng-show="sortQuery === 'quantity'" ng-class="{reverse:reverse}"></span>
         </th>
         <th>
-          <a ng-click = "selectSort('costBasis')">Cost Basis</a>
+          <a ng-click = "selectSort('costBasis')" tooltip = "Cost Basis">CB</a>
           <span class="sortorder" ng-show="sortQuery === 'costBasis'" ng-class="{reverse:reverse}"></span>
         </th>
         <th>
-          <a ng-click = "selectSort('currentValue')">Current Value</a>
+          <a ng-click = "selectSort('currentValue')" tooltip = "Current Value">CV</a>
           <span class="sortorder" ng-show="sortQuery === 'currentValue'" ng-class="{reverse:reverse}"></span>
         </th>
         <th>
-          <a ng-click = "selectSort('profit')">Profit/Loss</a>
+          <a ng-click = "selectSort('profit')" tooltip = "Profit/Loss">P/L</a>
           <span class="sortorder" ng-show="sortQuery === 'profit'" ng-class="{reverse:reverse}"></span>
         </th>
         <th>
-          <a ng-click = "selectSort('currentPrice')">Current Price</a>
+          <a ng-click = "selectSort('currentPrice')" tooltip = "Current Price">CP</a>
           <span class="sortorder" ng-show="sortQuery === 'currentPrice'" ng-class="{reverse:reverse}"></span>
         </th>
         <th>
-          <a ng-click = "selectSort('oneDay')">1d</a>
+          <a ng-click = "selectSort('oneDay')" tooltip = "One Day Change">1d</a>
           <span class="sortorder" ng-show="sortQuery === 'oneDay'" ng-class="{reverse:reverse}"></span>
         </th>
         <th>
-          <a ng-click = "selectSort('oneWeek')">7d</a>
+          <a ng-click = "selectSort('oneWeek')" tooltip = "Seven Day Change">7d</a>
           <span class="sortorder" ng-show="sortQuery === 'oneWeek'" ng-class="{reverse:reverse}"></span>
         </th>
         <th>
-          <a ng-click = "selectSort('oneMonth')">30d</a>
+          <a ng-click = "selectSort('oneMonth')" tooltip = "Thirty Day Change">30d</a>
           <span class="sortorder" ng-show="sortQuery === 'oneMonth'" ng-class="{reverse:reverse}"></span>
         </th>
         <th>Trade</th>
@@ -97,7 +97,7 @@
       <tbody>
         <tr>
           <td>CASH</td>
-          <td>{{ bank.cash | currency }}</td>
+          <td>{{ bank.cash }}</td>
           <td>{{ bank.cash | currency }}</td>
           <td>{{ bank.cash | currency }}</td>
           <td>{{ 0 | currency }}</td>
@@ -109,7 +109,7 @@
         </tr>
 
         <tr portfolio-row
-            ng-repeat="stock in history.contents | tickerFilter: tickerSelection | filter: { Date: dateSelected.date } | orderBy: sortQuery : reverse"
+            ng-repeat="(idx, stock) in filteredTransactions | orderBy: sortQuery : reverse"
             stock="stock"></tr>
 
       </tbody>

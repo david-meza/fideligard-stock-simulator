@@ -10,6 +10,10 @@ td {
   word-break: break-all;
 }
 
+#portfolio-table td {
+  font-size: 0.75em;
+}
+
 input {
   z-index: 3;
 }

@@ -5,6 +5,7 @@ stocks.directive('portfolioRow', function(){
     templateUrl: 'templates/directives/portfolio_row.html',
     scope: {
       stock: '=',
+      symbol: '=',
     }
   };
 

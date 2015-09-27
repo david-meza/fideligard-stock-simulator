@@ -42,13 +42,9 @@
         </th>
       </thead>
       <tbody>
-        <tr ng-repeat = "transaction in transactions | filter: tfilter | orderBy: sortQuery : reverse">
-          <td> {{ transaction.date | date: 'yyyy/MM/dd' }} </td>
-          <td> {{ transaction.symbol }} </td>
-          <td> {{ transaction.type }} </td>
-          <td> {{ transaction.quantity }} </td>
-          <td> {{ transaction.price | currency }} </td>
-          <td> {{ transaction.total | currency }} </td>
+        <tr transaction-row
+            transaction = "transaction"
+            ng-repeat = "transaction in transactions | filter: tfilter | orderObjectBy: sortQuery : reverse">
         </tr>
       </tbody>
     </table>

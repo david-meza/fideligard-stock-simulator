@@ -125,7 +125,7 @@ stocks.controller('tradeCtrl',
 
       }
 
-      portfolioService.transactions.push(transaction)
+      portfolioService.transactions.push(t)
 
     }
 

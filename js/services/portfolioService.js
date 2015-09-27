@@ -26,7 +26,7 @@ stocks.factory('portfolioService', ['$filter', function($filter) {
   }
 
   var formattedDate = function () {
-    return $filter('date')( randomDate(new Date("2012-01-01"), new Date()) , 'yyyy-MM-dd')
+    return $filter('date')( randomDate(new Date("2014-01-01"), new Date("2014-12-31")) , 'yyyy-MM-dd')
   }
 
   var populateCurrentStocks = function() {

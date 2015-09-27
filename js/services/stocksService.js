@@ -7,7 +7,7 @@ stocks.factory('stocksService', ['$http', function($http) {
   var marketHistory = {};
   marketHistory['contents'] = [];
 
-  var symbols = ['GOOG', 'AAPL', 'FB', 'CVC', 'NFLX', 'AMZN', 'PFE', 'MSFT', 'C', 'F', 'NOK', 'YHOO', 'VLKAY', 'IBB', 'CAT', 'NGD', 'KKR'].slice(0,2);
+  var symbols = ['GOOG', 'AAPL', 'FB', 'CVC', 'NFLX', 'AMZN', 'PFE', 'MSFT', 'C', 'F', 'NOK', 'YHOO', 'VLKAY', 'IBB', 'CAT', 'NGD', 'KKR'].slice(0,10);
 
 
   //all market data when complete
