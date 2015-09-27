@@ -61,7 +61,7 @@ stocks.config(function($stateProvider, $urlRouterProvider) {
     })
 
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/app.simulator.transactions');
 
 });
 

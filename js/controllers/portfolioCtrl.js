@@ -8,6 +8,8 @@ stocks.controller('portfolioCtrl',
 
     $scope.transactions = portfolioService.transactions;
 
+    $scope.currentStockData = portfolioService.currentStockData;
+
 
   }]
 );

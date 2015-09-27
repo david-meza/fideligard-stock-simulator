@@ -1,6 +1,6 @@
 stocks.controller('stocksCtrl',
-  [ '$scope' , 'stocksService', '$filter',
-  function ($scope, stocksService, $filter) {
+  [ '$scope' , 'stocksService',
+  function ($scope, stocksService) {
 
     $scope.symbols = stocksService.getSymbols();
 

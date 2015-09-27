@@ -31,9 +31,14 @@
         <th>
           <a ng-click = "selectSort('quantity')">Quantity</a>
           <span class="sortorder" ng-show="sortQuery === 'quantity'" ng-class="{reverse:reverse}"></span>
-        </th><th>
+        </th>
+        <th>
           <a ng-click = "selectSort('price')">Price</a>
           <span class="sortorder" ng-show="sortQuery === 'price'" ng-class="{reverse:reverse}"></span>
+        </th>
+        <th>
+          <a ng-click = "selectSort('total')">Total</a>
+          <span class="sortorder" ng-show="sortQuery === 'total'" ng-class="{reverse:reverse}"></span>
         </th>
       </thead>
       <tbody>
@@ -43,6 +48,7 @@
           <td> {{ transaction.type }} </td>
           <td> {{ transaction.quantity }} </td>
           <td> {{ transaction.price | currency }} </td>
+          <td> {{ transaction.total | currency }} </td>
         </tr>
       </tbody>
     </table>
