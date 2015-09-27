@@ -5,12 +5,12 @@ stocks.factory('portfolioService', ['$filter', function($filter) {
   var currentStockData = {};
 
   var generateMockData = function() {
-    var symbols = ['GOOG', 'AAPL', 'FB', 'CVC', 'NFLX', 'AMZN', 'PFE', 'MSFT', 'C', 'F', 'NOK'];
-    for (var i = 0; i < 50; i++) {
+    var symbols = ['GOOG', 'AAPL', 'FB', 'CVC', 'NFLX', 'AMZN', 'PFE', 'MSFT', 'C', 'F', 'NOK', 'YHOO', 'VLKAY', 'IBB', 'CAT', 'NGD', 'KKR'];
+    for (var i = 0; i < 25; i++) {
       var q = Math.floor(Math.random() * 10000)
       var p = Math.random() * 500 + 50
       var transaction = {
-        symbol: symbols[Math.floor(Math.random() * 11)],
+        symbol: symbols[Math.floor(Math.random() * 17)],
         date: formattedDate(),
         type: ["Buy", "Sell"][Math.floor(Math.random() * 2)],
         quantity: q,
